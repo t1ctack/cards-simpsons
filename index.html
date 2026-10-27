@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galeria de personagens de Os Simpsons consumindo uma API pública com JavaScript (fetch).">
+  <title>Os Simpsons | Galeria de Personagens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="nuvens" aria-hidden="true"></div>
+    <div class="topo__conteudo">
+      <p class="topo__selo">Anos 90 e 2000 • Clássico da TV</p>
+      <h1 class="topo__titulo">Os <span>Simpsons</span></h1>
+      <p class="topo__sub">Conheça os moradores de Springfield. Os cards abaixo são gerados em tempo real a partir de uma API pública.</p>
+      <a href="#personagens" class="botao">Ver personagens ↓</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="sobre" id="sobre">
+      <h2>Sobre o desenho</h2>
+      <div class="sobre__grade">
+        <article class="sobre__item">
+          <span class="sobre__icone" aria-hidden="true">📺</span>
+          <h3>Estreia</h3>
+          <p>Em 1989 a família amarela ganhou sua própria série e virou febre mundial nos anos 90.</p>
+        </article>
+        <article class="sobre__item">
+          <span class="sobre__icone" aria-hidden="true">🍩</span>
+          <h3>Springfield</h3>
+          <p>Uma cidade cheia de personagens marcantes, de Homer e Marge ao Sr. Burns e ao Apu.</p>
+        </article>
+        <article class="sobre__item">
+          <span class="sobre__icone" aria-hidden="true">🏆</span>
+          <h3>Sucesso</h3>
+          <p>É uma das séries de animação mais longas da história da televisão.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="personagens" id="personagens">
+      <h2>Personagens</h2>
+
+      <div class="controles">
+        <label class="campo">
+          <span>Buscar por nome</span>
+          <input type="search" id="busca" placeholder="Ex.: Homer, Bart, Moe..." autocomplete="off">
+        </label>
+
+        <label class="campo">
+          <span>Status</span>
+          <select id="filtroStatus">
+            <option value="todos">Todos</option>
+          </select>
+        </label>
+
+        <button type="button" id="btnFavoritos" class="botao botao--claro" aria-pressed="false">♥ Só favoritos</button>
+      </div>
+
+      <p class="info" id="info" role="status" aria-live="polite">Carregando personagens...</p>
+
+      <!-- O JavaScript cria os cards aqui dentro, via createElement + appendChild -->
+      <div class="grade" id="grade"></div>
+
+      <div class="mais">
+        <button type="button" id="btnMais" class="botao" hidden>Carregar mais</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Projeto acadêmico de Front-End • Desenvolvido por <strong>Luis Felipe Rodrigues de Souza</strong> • UniFECAF</p>
+    <p>Dados: <a href="https://apisimpsons.fly.dev/api/personajes?limit=1000" target="_blank" rel="noopener">API dos Simpsons</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
